@@ -20,28 +20,29 @@ const Input = (props) => {
         />
         <button
           data-test='submit-button'
-          //   onClick={(evt) => {
-          //     evt.preventDefault()
-          //     // update guessedWords
-          //     const letterMatchCount = getLetterMatchCount(
-          //       currentGuess,
-          //       secretWord,
-          //     )
-          //     const newGuessedWords = [
-          //       ...guessedWords,
-          //       { guessedWord: currentGuess, letterMatchCount },
-          //     ]
-          //     setGuessedWords(newGuessedWords)
+          onClick={(evt) => {
+            evt.preventDefault()
+            // // update guessedWords
+            // const letterMatchCount = getLetterMatchCount(
+            //   currentGuess,
+            //   secretWord,
+            // )
+            // const newGuessedWords = [
+            //   ...guessedWords,
+            //   { guessedWord: currentGuess, letterMatchCount },
+            // ]
+            // setGuessedWords(newGuessedWords)
 
-          //     // check against secretWord and update success if necessary
-          //     if (currentGuess === secretWord) setSuccess(true)
+            // // check against secretWord and update success if necessary
+            // if (currentGuess === secretWord) setSuccess(true)
 
-          //     // clear input box
-          //     setCurrentGuess('')
-          //   }}
+            // clear input box
+            setCurrentGuess('')
+          }}
           className='btn btn-primary mb-2'
         >
           {/* {stringsModule.getStringByLanguage(language, 'submit')} */}
+          Button
         </button>
       </form>
     </div>
