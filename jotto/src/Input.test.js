@@ -18,19 +18,59 @@ import Input from './Input'
  * @param {object} initialState - Initial state for this setup.
  * @returns {ShallowWrapper}
  */
-const setup = (secretWord = 'party') => {
-  return shallow(<Input secretWord={secretWord} />)
+const setup = (success = false, secretWord = 'party') => {
+  return shallow(<Input success={success} secretWord={secretWord} />)
 }
 
-test('Input render without error', () => {
-  const wrapper = setup()
-  const inputComponent = findByTestAttr(wrapper, 'component-input')
-  expect(inputComponent.length).toBe(1)
+describe('render', () => {
+  describe('success is true', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = setup(true)
+    })
+
+    test('Input render without error', () => {
+      const inputComponent = findByTestAttr(wrapper, 'component-input')
+      expect(inputComponent.length).toBe(1)
+    })
+
+    test('input box does not show', () => {
+      const inputBox = findByTestAttr(wrapper, 'input-box')
+      expect(inputBox.exists()).toBe(false)
+    })
+
+    test('button box does not show', () => {
+      const submitButton = findByTestAttr(wrapper, 'submit-button')
+      expect(submitButton.exists()).toBe(false)
+    })
+  })
+
+  describe('success is false', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = setup(false)
+    })
+
+    test('Input render without error', () => {
+      const inputComponent = findByTestAttr(wrapper, 'component-input')
+      expect(inputComponent.length).toBe(1)
+    })
+
+    test('input box show', () => {
+      const inputBox = findByTestAttr(wrapper, 'input-box')
+      expect(inputBox.exists()).toBe(true)
+    })
+
+    test('button box show', () => {
+      const submitButton = findByTestAttr(wrapper, 'submit-button')
+      expect(submitButton.exists()).toBe(true)
+    })
+  })
 })
 
-// test('does throw warning with expected prop', () => {
-//   checkProps(Input, { secretWord: [] })
-// })
+test('does not throw warning with expected props', () => {
+  checkProps(Input, { secretWord: 'party' })
+})
 
 describe('state controlled input field', () => {
   let mockSetCurrentGuess = jest.fn()
@@ -56,7 +96,7 @@ describe('state controlled input field', () => {
   test('field is cleared upon submit button click', () => {
     const submitButton = findByTestAttr(wrapper, 'submit-button')
 
-    submitButton.simulate('click', { preventDefault() {} })
+    submitButton.simulate('click', { preventDefault() {} }) // preventDefault() {} --> for use e.preventDefault() in Input.js
     expect(mockSetCurrentGuess).toHaveBeenCalledWith('')
 
     // The mock function was called at least once with the specified args
