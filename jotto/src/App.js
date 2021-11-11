@@ -8,7 +8,10 @@ function App() {
   // TODO: get props from shared state
   const success = false
   const secretWord = 'party'
-  const guessedWords = []
+  const guessedWords = [
+    // { guessedWord: 'agile', letterMatchCount: 1 },
+    // { guessedWord: 'agilee', letterMatchCount: 3 },
+  ]
 
   return (
     <div className='container' data-test='component-app'>
