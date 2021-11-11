@@ -82,10 +82,10 @@ describe('state controlled input field', () => {
     originalUseState = React.useState // purpose: not taking the result of last test and carrying them to the next test
     React.useState = () => ['', mockSetCurrentGuess]
     wrapper = setup()
-  })
+  }) // cleanup global state
   afterEach(() => {
     React.useState = originalUseState
-  })
+  }) // clean temporary state of each test
   test('state updates with value of input box upon change', () => {
     const inputBox = findByTestAttr(wrapper, 'input-box')
     const mockEvent = { target: { value: 'train' } }

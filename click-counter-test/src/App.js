@@ -11,10 +11,7 @@ function App() {
         The counter is currently&nbsp;
         <span data-test='count'>{count}</span>
       </h1>
-      {/* Notes: 
-      - using ternary on the error state to determine whether or not to hide 
-      - the 'error' and 'hidden' classes are defined in App.css
-      */}
+
       <div
         data-test='error-message'
         className={`error ${error ? '' : 'hidden'}`}
@@ -35,6 +32,7 @@ function App() {
       <button
         data-test='decrement-button'
         onClick={() => {
+          console.log('decrement - button')
           if (count > 0) {
             setCount(count - 1)
           } else {

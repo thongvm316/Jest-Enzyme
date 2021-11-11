@@ -40,16 +40,18 @@ describe('if there are no words guessed', () => {
 })
 
 describe('if there are words guessed', () => {
-  let wrapper
   const guessedWords = [
     { guessedWord: 'train', letterMatchCount: 3 },
     { guessedWord: 'agile', letterMatchCount: 1 },
     { guessedWord: 'party', letterMatchCount: 5 },
   ]
 
-  beforeEach(() => {
-    wrapper = setup({ guessedWords })
-  })
+  // let wrapper
+  // beforeEach(() => {
+  //   wrapper = setup({ guessedWords })
+  // })
+
+  const wrapper = setup({ guessedWords })
 
   test('renders without error', () => {
     const component = findByTestAttr(wrapper, 'component-guessed-words')

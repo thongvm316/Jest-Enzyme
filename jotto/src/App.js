@@ -2,19 +2,20 @@ import './App.css'
 
 import GuessedWords from './GuessedWords'
 import Congrats from './Congrats'
+import Input from './Input'
 
 function App() {
+  // TODO: get props from shared state
+  const success = false
+  const secretWord = 'party'
+  const guessedWords = []
+
   return (
-    <div className='container'>
+    <div className='container' data-test='component-app'>
       <h1>Jotto</h1>
-      <Congrats success={true} />
-      <GuessedWords
-        guessedWords={[
-          { guessedWord: 'train', letterMatchCount: 3 },
-          { guessedWord: 'agile', letterMatchCount: 1 },
-          { guessedWord: 'party', letterMatchCount: 5 },
-        ]}
-      />
+      <Congrats success={success} />
+      <Input success={success} secretWord={secretWord} />
+      <GuessedWords guessedWords={guessedWords} />
     </div>
   )
 }
