@@ -32,6 +32,9 @@ describe('getSecretWord', () => {
 
      * @Response
         - Flow: test -> function -> axios -> test -> use moxios for test, not call http request here although getSecretWord() was call a http request
+
+     * @Purpose
+        - Avoid call http request when test 
     */
   })
 })
