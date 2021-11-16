@@ -25,7 +25,7 @@ test('renders without error', () => {
 describe('get secret word', () => {
   beforeEach(() => {
     // clear the mock calls from previous tests
-    // mockGetSecretWord.mockClear() // ! should clear before test when mock func
+    mockGetSecretWord.mockClear() // ! should clear before test when mock func
   })
 
   test('getSecretWord on app mount', () => {

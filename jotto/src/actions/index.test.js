@@ -1,5 +1,12 @@
 import moxios from 'moxios'
-import { getSecretWord } from './'
+import { getSecretWord, correctGuess, actionTypes } from './'
+
+describe('correctGuess', () => {
+  test('returns ac action with type `CORRECT_GUESS`', () => {
+    const action = correctGuess()
+    expect(action).toStrictEqual({ type: actionTypes.CORRECT_GUESS }) // * toStrictEqual instead cuz obj is mutable, can't use toBe to compare
+  })
+})
 
 describe('getSecretWord', () => {
   beforeEach(() => {
