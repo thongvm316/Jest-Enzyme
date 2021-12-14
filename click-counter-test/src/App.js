@@ -18,6 +18,7 @@ function App() {
       >
         The counter cannot go below 0
       </div>
+
       <button
         data-test='increment-button'
         onClick={() => {
@@ -29,6 +30,7 @@ function App() {
       >
         Increment counter
       </button>
+
       <button
         data-test='decrement-button'
         onClick={() => {
@@ -47,3 +49,7 @@ function App() {
 }
 
 export default App
+
+/* 
+  1. 
+*/

@@ -4,7 +4,7 @@ import rootReducer from '../src/reducers'
 
 export const storeFactory = (initialState) => {
   return createStore(rootReducer, initialState)
-}
+} // no need initialState
 
 /**
  * Return node(s) with the given data-test attribute.

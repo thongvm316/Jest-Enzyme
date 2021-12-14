@@ -32,7 +32,7 @@ test('renders without error', () => {
 describe('get secret word', () => {
   beforeEach(() => {
     // clear the mock calls from previous tests
-    mockGetSecretWord.mockClear() // ! should clear before test when mock func
+    mockGetSecretWord.mockClear() // * should clear before test when mock func
   })
 
   test('getSecretWord on app mount', () => {
@@ -57,4 +57,12 @@ describe('get secret word', () => {
 
  * @Response
     - For test with useEffect with App.js Component, in index.test.js just for test result when call api with axios.
+*/
+
+/* 
+  Test logic:
+    1. Mock function in actions folder
+    2. Test render component
+    3. Check useEffect would call one time
+    4. Check useEffect would not call when setProps
 */
